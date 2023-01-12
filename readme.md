@@ -69,7 +69,10 @@ To run unit test:
 2.	Build all the projects
 3.	Right click the test project and select ‘Run Tests’
 
-For testing the SDK over Http use the SDKClient project. Remember to PUT YOUR API KEY.
+For testing the SDK over Http use the SDKClient project. 
+1. Remember to set YOUR API KEY.
+2. The project use the deployed Nuget package. If you wish to debug the SDK remove the TheOneLibrary reference and use project reference.
 
-# Comment
+
+# General comment
 The `design.md` is in folder design
