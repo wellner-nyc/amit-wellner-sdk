@@ -1,15 +1,3 @@
-To do:
-how to install, use and test the SDK
-
-The SDK should be deployed to a package manager like npm, pip, maven etc…
-Please add a file in the root directory `design.md` with information about your SDK design
-
-Delivery:Once your SDK is ready, please send us a link to a Git repo named “{your_name}-SDK”.
-
-Fix unit test
-
-Done:
-
 # Overview
 
 ## Base URL
@@ -17,6 +5,8 @@ Done:
 All endpoints in the documentation starts with the following URL:
 
 https://the-one-api.dev/v2
+
+###How to use the SDK
 
 ## Authentication
 
@@ -29,6 +19,36 @@ configuration.ApiKeyPrefix["Bearer"] = "Bearer";
 configuration.ApiKey["Bearer"] = "{PUT YOUR API KEY}"; 
 ```
 
+## Sample code how to use SDK
+
+```csharp
+// authentication setting Bearer Token
+Configuration configuration = Configuration.Default;
+configuration.ApiKeyPrefix["Bearer"] = "Bearer";
+configuration.ApiKey["Bearer"] = "{PUT YOUR API KEY}";
+
+try
+{
+	// first arguemnt 'basePath' is optional or pass an instance of the Configuration class
+	MovieApi movieApi = new MovieApi(configuration);
+
+	Docs response = movieApi.Get();
+	Console.WriteLine(response);
+
+	string movieId = "5cd95395de30eff6ebccde57";
+
+	Id id = movieApi.Id(movieId);
+	Console.WriteLine(id);
+
+	Quote quote = movieApi.Quote(movieId);
+	Console.WriteLine(quote);
+}
+catch (Exception ex)
+{
+	Console.WriteLine(ex.ToString());
+}
+```
+	
 # SDK Deployment
 
 My SDK was deployed to Nuget. 
@@ -43,12 +63,13 @@ Link to deployed Nuget package - https://www.nuget.org/packages/TheOneSDK.Amit.W
 
 # Testing
 
-TheOneApiTest.cs has working unit test. It only covers unauthrize api calls.
+TheOneApiTest.cs has working unit test. It only covers unauthorized api calls.
+To run unit test:
+1.	Open the solution in Visual Studio 2019 or higher
+2.	Build all the projects
+3.	Right click the test project and select ‘Run Tests’
 
-To test the SDK you can use the SDKClient. 
-
-
-
+For testing the SDK over Http use the SDKClient project. Remember to PUT YOUR API KEY.
 
 # Comment
 The `design.md` is in folder design

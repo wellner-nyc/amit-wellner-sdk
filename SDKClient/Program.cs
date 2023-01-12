@@ -13,14 +13,13 @@ namespace SDKClient
         public static void Main(string[] args)
         {
             Console.WriteLine("App started!");
-            
+
             // init            
 
-            // authentication setting using user name and password
-            // in the default (Configuration.Default) or new Configuration()
+            // authentication setting Bearer Token
             Configuration configuration = Configuration.Default;
             configuration.ApiKeyPrefix["Bearer"] = "Bearer";
-            configuration.ApiKey["Bearer"] = "ewY4b5XY08LREjve5yON";
+            configuration.ApiKey["Bearer"] = "{PUT YOUR API KEY}";
 
             try
             {
