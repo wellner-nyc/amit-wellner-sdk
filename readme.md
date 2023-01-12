@@ -6,7 +6,7 @@ All endpoints in the documentation starts with the following URL:
 
 https://the-one-api.dev/v2
 
-###How to use the SDK
+### How to use the SDK
 
 ## Authentication
 
